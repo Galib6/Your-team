@@ -55,7 +55,7 @@ const HomePage = () => {
       (employee) =>
         `${employee.first_name} ${employee.last_name}`
           .toLowerCase()
-          .includes(filters.searchTerm.toLowerCase()) ||
+          .includes(filters.searchTerm.trim().toLowerCase()) ||
         employee.first_name
           .toLowerCase()
           .includes(filters.searchTerm.toLowerCase()) ||
@@ -104,7 +104,7 @@ const HomePage = () => {
                 <Sidebar1></Sidebar1>
               </aside>
               <div>
-                <div className="mt-8 mb-10 ml-8 flex justify-center lg:justify-end items-center">
+                <div className="mt-8 mb-10 ml-4 flex justify-center lg:justify-end items-center">
                   <div className="flex flex-col lg:flex-row bg-white rounded-lg shadow-md p-2 space-y-2 sm:space-y-0 sm:space-x-2">
                     <div className="flex-grow">
                       <input
@@ -171,8 +171,8 @@ const HomePage = () => {
                 {!loading ? (
                   <div>
                     {employeeListSliced.length > 0 ? (
-                      <div className="grid grid-cols-1 lg:grid-cols-3 gap-5  lg:ml-8  overflow-y-auto">
-                        {employeeListSliced?.map((item) => (
+                      <div className="grid grid-cols-1 lg:grid-cols-3 gap-3  lg:ml-8  overflow-y-auto">
+                        {employeeListSliced?.slice(0, 19).map((item) => (
                           <Card
                             key={item.id}
                             item={item}

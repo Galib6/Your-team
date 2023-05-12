@@ -21,7 +21,7 @@ const Card = ({ item }) => {
   };
 
   return (
-    <div className=" w-full transition-all ease-in-out duration-500 hover:shadow-lg relative">
+    <div className=" w-[290px] transition-all ease-in-out duration-500 hover:shadow-lg relative">
       {selected && (
         <span className="bg-green-500 rounded-tr-lg text-white px-3 py-1 tracking-widest text-xs absolute right-0 top-0 rounded-bl z-10">
           ✅
