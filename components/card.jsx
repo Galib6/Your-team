@@ -59,10 +59,10 @@ const Card = ({ item, setTeam, team, employeeList }) => {
               <p className="text-gray-600 text-[13px]">
                 <span className="font-bold">Expertise:</span> {item.domain}
               </p>
-              <p className=" transition-colors duration-300 text-[13px]">
+              <p className=" transition-colors duration-300 text-[13px] ">
                 <span className="font-bold">Email :</span>{" "}
                 <br className="mb-[-5px] line" />
-                {item.email}
+                {item.email.slice(0, 20)}
               </p>
               {!selected ? (
                 <button

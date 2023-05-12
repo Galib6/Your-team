@@ -18,7 +18,7 @@ const Team = () => {
         <div className="grid grid-cols-3">
           <div className="mb-8 mt-8 ml-8">
             <Link href="/">
-              <button className="bg-blue-700 text-white px-4 py-2 rounded-lg flex items-center">
+              <button className="bg-blue-500 text-white px-4 py-2 rounded-lg flex items-center">
                 <AiOutlineArrowLeft className="mr-2" />
                 Back
               </button>

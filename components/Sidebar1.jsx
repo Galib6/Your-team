@@ -1,11 +1,13 @@
-import React from "react";
+import React, { useContext } from "react";
 import { BiMale } from "react-icons/bi";
 import { BiFemale } from "react-icons/bi";
 import { AiOutlineArrowRight } from "react-icons/ai";
 import { useSelector } from "react-redux";
 import Link from "next/link";
+import { AuthContext } from "@/context/AuthProvider";
 
 const Sidebar1 = () => {
+  const { user } = useContext(AuthContext);
   const employeeList = useSelector((state) => state.allEmployee.teamMembers);
 
   const male = employeeList.filter((element) => element.gender === "Male");
@@ -29,12 +31,29 @@ const Sidebar1 = () => {
   return (
     <div className={`flex h-screen flex-col bg-gray-100 w-[250px]`}>
       <div className="flex items-center justify-center mt-4">
-        <img
-          className="w-12 h-12 rounded-full"
-          src="https://img.freepik.com/free-vector/businessman-character-avatar-isolated_24877-60111.jpg?w=2000"
-          alt="Profile Avatar"
-        />
-        <h2 className="ml-2 text-xl font-semibold text-gray-800">User Name</h2>
+        {user ? (
+          <div className="flex flex-col justify-center items-center">
+            <img
+              className="w-12 h-12 rounded-full"
+              src={user?.photoURL}
+              alt="Profile Avatar"
+            />
+            <h2 className="ml-2 text-md font-semibold text-gray-800 ">
+              {user.displayName}
+            </h2>
+          </div>
+        ) : (
+          <div className="flex flex-col justify-center items-center">
+            <img
+              className="w-12 h-12 rounded-full"
+              src="https://img.freepik.com/free-vector/businessman-character-avatar-isolated_24877-60111.jpg?w=2000"
+              alt="Profile Avatar"
+            />
+            <h2 className="ml-2 text-xl font-semibold text-gray-800">
+              User Name
+            </h2>
+          </div>
+        )}
       </div>
       <hr className="h-px mt-5 bg-gray-200 border-0 dark:bg-gray-300" />
       {/* You Selected: {employeeList.length} */}
