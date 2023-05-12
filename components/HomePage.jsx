@@ -104,7 +104,7 @@ const HomePage = () => {
                 <Sidebar1></Sidebar1>
               </aside>
               <div>
-                <div className="mt-8 mb-10 ml-4 flex justify-center lg:justify-end items-center">
+                <div className="mt-8 lg:mb-10  mb-4 flex justify-center lg:justify-end items-center">
                   <div className="flex flex-col lg:flex-row bg-white rounded-lg shadow-md p-2 space-y-2 sm:space-y-0 sm:space-x-2">
                     <div className="flex-grow">
                       <input
@@ -128,7 +128,7 @@ const HomePage = () => {
                         <option value="Female">Female</option>
                       </select>
                       <select
-                        className="border-gray-300 focus:outline-none focus:border-blue-500 rounded-none py-2 px-2 sm:rounded-none "
+                        className="border-gray-300 focus:outline-none focus:border-blue-500 rounded-none py-2 lg:px-2 sm:rounded-none "
                         name="domain"
                         value={iniFilters.domain}
                         onChange={handleChange}
@@ -143,7 +143,7 @@ const HomePage = () => {
                           Business Development
                         </option>
                       </select>
-                      <label className="flex items-center">
+                      <label className="flex items-center ">
                         <input
                           type="checkbox"
                           className="mr-2"
@@ -171,7 +171,7 @@ const HomePage = () => {
                 {!loading ? (
                   <div>
                     {employeeListSliced.length > 0 ? (
-                      <div className="grid grid-cols-1 lg:grid-cols-3 gap-3  lg:ml-8  overflow-y-auto">
+                      <div className="grid grid-cols-1 lg:grid-cols-3 gap-3  lg:ml-8 place-items-center  overflow-y-auto">
                         {employeeListSliced?.slice(0, 19).map((item) => (
                           <Card
                             key={item.id}
