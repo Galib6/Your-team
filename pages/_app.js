@@ -28,7 +28,7 @@ export default function App({ Component, pageProps }) {
       </Head>
       <Provider store={store}>
         <AuthProvider>
-          {/* <Header /> */}
+          <Header />
           <Component {...pageProps} />
           <Footer />
           <Toaster />
