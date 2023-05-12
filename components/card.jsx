@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { toast } from "react-hot-toast";
 import { useDispatch, useSelector } from "react-redux";
 
-const Card = ({ item, setTeam, team, employeeList }) => {
+const Card = ({ item }) => {
   const [selected, setSeleted] = useState(false);
   const dispatch = useDispatch();
   const selection = () => {
@@ -19,8 +19,6 @@ const Card = ({ item, setTeam, team, employeeList }) => {
       }
     }
   };
-
-  // Finance IT Management UI Designing Sales Business Development
 
   return (
     <div className=" w-full transition-all ease-in-out duration-500 hover:shadow-lg relative">
