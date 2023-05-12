@@ -3,6 +3,7 @@ import { GoogleAuthProvider } from "firebase/auth";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import React, { useContext, useState } from "react";
+import { toast } from "react-hot-toast";
 import { FcGoogle } from "react-icons/fc";
 
 const Signup = () => {
@@ -193,7 +194,7 @@ const Signup = () => {
                 <div>
                   <button
                     type="submit"
-                    className="w-full py-4 rounded-full bg-black text-white text-lg font-medium transition-transform active:scale-95 mb-3 hover:opacity-75 flex items-center gap-2 justify-center"
+                    className="w-full py-4 rounded-full bg-blue-500 text-white text-lg font-medium transition-transform active:scale-95 mb-3 hover:opacity-75 flex items-center gap-2 justify-center"
                   >
                     Sign in
                   </button>

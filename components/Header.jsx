@@ -2,13 +2,14 @@ import React, { useState, useEffect, useContext } from "react";
 import Wrapper from "./Wrapper";
 import Link from "next/link";
 import { RiTeamLine } from "react-icons/ri";
-import { BsCart } from "react-icons/bs";
+import { AiOutlineTeam } from "react-icons/ai";
 import { BiMenuAltRight } from "react-icons/bi";
 import { VscChromeClose } from "react-icons/vsc";
 import { AuthContext } from "@/context/AuthProvider";
+import { useSelector } from "react-redux";
 
 const Header = () => {
-  const { cart } = useContext(AuthContext);
+  const teamMembers = useSelector((state) => state.allEmployee.teamMembers);
   const [mobileMenu, setMobileMenu] = useState(false);
   const [show, setShow] = useState("translate-y-0");
   const [lastScrollY, setLastScrollY] = useState(0);
@@ -59,21 +60,22 @@ const Header = () => {
           {/* search bar */}
 
           {/* Icon start */}
-          {user && (
-            <Link href="/cart">
-              <div className="w-8 md:w-12 h-8 md:h-12 rounded-full flex justify-center items-center hover:bg-black/[0.05] cursor-pointer relative">
-                <BsCart className="text-[15px] md:text-[20px]" />
-                {cart.length > 0 && (
-                  <div className="h-[14px] md:h-[18px] min-w-[14px] md:min-w-[18px] rounded-full bg-red-600 absolute top-1 left-5 md:left-7 text-white text-[10px] md:text-[12px] flex justify-center items-center px-[2px] md:px-[5px]">
-                    {cart.length}
-                  </div>
-                )}
-              </div>
-            </Link>
-          )}
           {/* Icon end */}
 
           {/* Icon start */}
+
+          <ul>
+            <Link href="/team">
+              <li className="mx-6">
+                <div className="indicator mt-2">
+                  <span className="indicator-item badge badge-error text-white">
+                    {teamMembers.length}
+                  </span>
+                  <AiOutlineTeam style={{ height: 30, width: 30 }} />
+                </div>
+              </li>
+            </Link>
+          </ul>
           {user ? (
             <></>
           ) : (
@@ -87,28 +89,16 @@ const Header = () => {
             </>
           )}
           {user && (
-            <div className="dropdown dropdown-end">
-              <label tabIndex={0} className="">
-                <div className="w-8 md:w-12 h-8 md:h-12 rounded-full flex justify-center items-center hover:bg-black/[0.05] cursor-pointer relative">
-                  <div className="avatar">
-                    <div className="w-10 rounded-full">
-                      <img src={user?.photoURL} />
-                    </div>
-                  </div>
-                </div>
-              </label>
-              <ul
-                tabIndex={0}
-                className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52"
-              >
-                <li>
-                  <a>{user?.displayName}</a>
-                </li>
-                <li>
-                  <button onClick={handleLogOut}>Log out</button>
-                </li>
-              </ul>
-            </div>
+            <ul>
+              <li>
+                <button
+                  className="bg-blue-500 rounded-full text-white p-2"
+                  onClick={handleLogOut}
+                >
+                  Log out
+                </button>
+              </li>
+            </ul>
           )}
 
           {/* Icon end */}

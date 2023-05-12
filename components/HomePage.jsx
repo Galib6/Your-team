@@ -83,7 +83,7 @@ const HomePage = () => {
   };
 
   return (
-    <div>
+    <div className="scroll-smooth">
       <Wrapper>
         <div className="flex justify-between">
           <aside className="h-screen  sticky top-0 hidden lg:block">
