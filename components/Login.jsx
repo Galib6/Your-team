@@ -2,7 +2,7 @@ import { AuthContext } from "@/context/AuthProvider";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import React, { useContext, useState } from "react";
-import { FcGoogle } from "react-icons/fc";
+import { toast } from "react-hot-toast";
 
 const Login = () => {
   const router = useRouter();
