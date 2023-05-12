@@ -51,7 +51,7 @@ const Header = () => {
     >
       <Wrapper className="h-[60px] flex justify-between items-center">
         <Link href="/">
-          <h1 className="font-bold text-[30px]  justify-center text-neutral-600 flex items-center">
+          <h1 className="font-bold lg:text-[30px] text-[15px]  justify-center text-neutral-600 flex items-center">
             YourTeam <RiTeamLine className="ml-1" />
           </h1>
         </Link>
@@ -92,7 +92,7 @@ const Header = () => {
             <ul>
               <li>
                 <button
-                  className="bg-blue-500 rounded-full text-white p-2"
+                  className="bg-blue-500 rounded-full text-white p-2 hidden lg:flex"
                   onClick={handleLogOut}
                 >
                   Log out
@@ -102,22 +102,6 @@ const Header = () => {
           )}
 
           {/* Icon end */}
-
-          {/* Mobile icon start */}
-          <div className="w-8 md:w-12 h-8 md:h-12 rounded-full flex md:hidden justify-center items-center hover:bg-black/[0.05] cursor-pointer relative -mr-2">
-            {mobileMenu ? (
-              <VscChromeClose
-                className="text-[16px]"
-                onClick={() => setMobileMenu(false)}
-              />
-            ) : (
-              <BiMenuAltRight
-                className="text-[20px]"
-                onClick={() => setMobileMenu(true)}
-              />
-            )}
-          </div>
-          {/* Mobile icon end */}
         </div>
       </Wrapper>
     </header>

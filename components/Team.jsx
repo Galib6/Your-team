@@ -28,13 +28,21 @@ const Team = () => {
             You Selected Team Members
           </h1>
         </div>
-        {teamMember.map((item) => (
-          <CartItem
-            key={item.id}
-            item={item}
-            handleDelete={handleDelete}
-          ></CartItem>
-        ))}
+        {teamMember?.length > 0 ? (
+          <div>
+            {teamMember.map((item) => (
+              <CartItem
+                key={item.id}
+                item={item}
+                handleDelete={handleDelete}
+              ></CartItem>
+            ))}
+          </div>
+        ) : (
+          <h1 className="text-center mt-16 font-bold text-[25px] animate-pulse">
+            Your team is empty now.
+          </h1>
+        )}
       </Wrapper>
     </div>
   );
